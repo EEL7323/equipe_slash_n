@@ -9,7 +9,7 @@ QT += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = controleRU
+TARGET = controlRU2
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,7 +25,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
     secondwindow.cpp \
     cardinfo.cpp \
     addcredits.cpp \
@@ -35,28 +34,33 @@ SOURCES += main.cpp\
     sockettcpru.cpp \
     alunoapp.cpp \
     carddata.cpp \
-    creditstoadd.cpp
+    creditstoadd.cpp \
+    mainwindow.cpp \
+    socketesp.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += \
     secondwindow.h \
     cardinfo.h \
     addcredits.h \
     extrainfo.h \
     aluno.h \
     clientjsoninterface.h \
-    sockettcpru.h \ 
+    sockettcpru.h \
     alunoapp.h \
     carddata.h \
-    creditstoadd.h
+    creditstoadd.h \
+    mainwindow.h \
+    socketesp.h
 
-FORMS    += mainwindow.ui \
+FORMS    += \
     secondwindow.ui \
     cardinfo.ui \
     addcredits.ui \
-    extrainfo.ui
+    extrainfo.ui \
+    mainwindow.ui
 
 CONFIG += mobility
-MOBILITY = 
+MOBILITY =
 
 RESOURCES += \
     fontes.qrc

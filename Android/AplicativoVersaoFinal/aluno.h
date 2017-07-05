@@ -5,6 +5,7 @@
 
 class Aluno
 {
+protected:
     QString Nome;
     ulong Matricula;
     float creditsMobile, creditsCard;

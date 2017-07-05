@@ -1,6 +1,13 @@
-#include "mainwindow.h"
+#include "MainWindow.h"
 #include "secondwindow.h"
 #include <QApplication>
+
+/*
+*  1 - Add Credits to Card
+*  2 - Add Credits to Mobile
+*  3 - Went to RU?
+*/
+char updateType;
 
 int main(int argc, char *argv[])
 {
@@ -9,24 +16,4 @@ int main(int argc, char *argv[])
     w.show();
 
     return a.exec();
-}
-
-void ControlSecondWindow(bool createSecondWindow, bool createCardInfo, bool destroyCardInfo)
-{
-    CardInfo *registerCard;
-    SecondWindow *loggedWindow;
-
-    if(createSecondWindow == true)
-    {
-        //loggedWindow =  new SecondWindow(this);
-        //loggedWindow -> showMaximized();
-    } else if(createCardInfo == true)
-    {
-        //registerCard = new CardInfo(this);
-        //registerCard -> show();
-    } else if(destroyCardInfo)
-    {
-        //registerCard -> close();
-        //delete registerCard;
-    }
 }

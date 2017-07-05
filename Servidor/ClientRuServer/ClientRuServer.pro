@@ -1,26 +1,18 @@
-QT += core
-QT += sql
-QT += network
-QT -= gui
+#-------------------------------------------------
+#
+# Project created by QtCreator 2017-05-30T23:35:35
+#
+#-------------------------------------------------
 
-CONFIG += c++11
+QT       += core gui sql network
 
-TARGET = ServerTerminalRU
-CONFIG += console
-CONFIG -= app_bundle
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+TARGET = ClientRuServer
 TEMPLATE = app
 
-SOURCES += main.cpp \
-    aluno.cpp \
-    alunoserver.cpp \
-    databaserumanager.cpp \
-    serverru.cpp \
-    dbjsoninterface.cpp \
-    sockettcpesp.cpp
-
 # The following define makes your compiler emit warnings if you use
-# any feature of Qt which as been marked deprecated (the exact warnings
+# any feature of Qt which as been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
@@ -30,10 +22,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-HEADERS += \
+
+SOURCES += main.cpp\
+        mainwindow.cpp \
+    aluno.cpp \
+    alunoserver.cpp \
+    clientjsoninterface.cpp \
+    sockettcpru.cpp
+
+HEADERS  += mainwindow.h \
     aluno.h \
     alunoserver.h \
-    databaserumanager.h \
-    serverru.h \
-    dbjsoninterface.h \
-    sockettcpesp.h
+    clientjsoninterface.h \
+    sockettcpru.h
+
+FORMS    += mainwindow.ui

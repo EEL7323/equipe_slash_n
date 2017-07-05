@@ -56,8 +56,12 @@ bool DataBaseRUManager::AddAluno(AlunoServer aluno, QString *Error) {
     delete query;
     query = new QSqlQuery();
 
-    QString querycommand = QString("insert into cliente values(%1, '%2', %3, %4)")
-                .arg(aluno.getMatricula()).arg(aluno.getNome()).arg(aluno.getcreditsMobile()).arg(aluno.getcreditsCard());
+    QString querycommand = QString("insert into cliente values(%1, '%2', %3, %4, '%5')")
+                                                .arg(aluno.getMatricula())
+                                                .arg(aluno.getNome())
+                                                .arg(aluno.getcreditsMobile())
+                                                .arg(aluno.getcreditsCard())
+                                                .arg(aluno.getSenha());
 
     if (!query->exec(querycommand))
     {
@@ -93,11 +97,12 @@ bool DataBaseRUManager::UpdateAluno(AlunoServer aluno, QString *Error) {
     delete query;
     query = new QSqlQuery();
 
-    QString querycommand = QString("UPDATE cliente SET nome = '%1', creditsmobile = %2, creditscard = %3 "
-                                        "WHERE matricula = %4")
+    QString querycommand = QString("UPDATE cliente SET nome = '%1', creditsmobile = %2, creditscard = %3, senhaapp = '%4' "
+                                        "WHERE matricula = %5")
                                         .arg(aluno.getNome())
                                         .arg(aluno.getcreditsMobile())
                                         .arg(aluno.getcreditsCard())
+                                        .arg(aluno.getSenha())
                                         .arg(aluno.getMatricula());
 
     if (!query->exec(querycommand))
@@ -122,9 +127,10 @@ AlunoServer DataBaseRUManager::SearchAluno(ulong matricula, QString *Error, bool
     QTextStream out(stdout);
 
     QModelIndex index;
-    QString rowData[4];
+    int nItems = 5;
+    QString rowData[nItems];
 
-    for (int column = 0; column < 4; column++)
+    for (int column = 0; column < nItems; column++)
     {
         index = Model->index(0, column, QModelIndex());
         rowData[column] = Model->data(index, Qt::DisplayRole).toString();
@@ -135,6 +141,7 @@ AlunoServer DataBaseRUManager::SearchAluno(ulong matricula, QString *Error, bool
     aluno.setNome(rowData[1]);
     aluno.setcreditsMobile(rowData[2].toFloat());
     aluno.setcreditsCard(rowData[3].toFloat());
+    aluno.setSenha(rowData[4]);
 
 //    if (query->exec(queryString))
     if (aluno.getNome() == "Empty")

@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>356</width>
+    <width>322</width>
     <height>460</height>
    </rect>
   </property>
@@ -48,10 +48,7 @@
        <item>
         <widget class="QLineEdit" name="lineEdit">
          <property name="text">
-          <string/>
-         </property>
-         <property name="echoMode">
-          <enum>QLineEdit::Normal</enum>
+          <string>Matrícula</string>
          </property>
         </widget>
        </item>
@@ -69,14 +66,8 @@
        </item>
        <item>
         <widget class="QLineEdit" name="lineEdit_2">
-         <property name="inputMethodHints">
-          <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
-         </property>
          <property name="text">
-          <string/>
-         </property>
-         <property name="echoMode">
-          <enum>QLineEdit::Password</enum>
+          <string>Senha</string>
          </property>
         </widget>
        </item>

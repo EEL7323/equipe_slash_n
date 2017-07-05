@@ -10,8 +10,7 @@
 #include <QJsonArray>
 
 
-#include "alunoapp.h"
-#include "carddata.h"
+#include "aluno.h"
 #include "clientjsoninterface.h"
 
 class SocketTcpRU : public QObject
@@ -20,10 +19,8 @@ public:
 
     SocketTcpRU();
 
-    AlunoApp SearchAluno(int matricula, QString *Error, bool &ErrorOccurs);
-    bool addCreditCard(int matricula, float amount, CardData teste, QString *Error);
-    bool addCreditMobile(int matricula, float amount, CardData teste, QString *Error);
-
+    bool addCreditsCard(int matricula, float saldo, float amount, QString *Error);
+    bool addCreditsMobile(int matricula, float saldo, float amount, QString *Error);
 
 signals:
 

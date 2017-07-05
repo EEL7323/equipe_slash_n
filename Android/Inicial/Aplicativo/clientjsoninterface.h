@@ -6,7 +6,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-#include "AlunoApp.h"
+#include "Aluno.h"
 
 class ClientJsonInterface
 {
@@ -14,22 +14,18 @@ class ClientJsonInterface
 
     QString flag_last_change;
     QString ErrorText;
-    int occupants;
 
     void JsonSaldoMobile(QJsonArray *JsonArray, QJsonObject JsonRequest);
     void JsonSaldoCard(QJsonArray *JsonArray, QJsonObject JsonRequest);
     void JsonSync(QJsonArray *JsonArray, QJsonObject JsonRequest);
-    void JsonRecAluno(QJsonArray *JsonArray, QJsonObject JsonRequest);
-
     void JsonFeedbackHandler(QJsonObject JsonFb);
 
 public:
-    AlunoApp aluno;
+    Aluno aluno;
     ClientJsonInterface();
 
     void JsonReceiver(QByteArray data);
-    int getOccupants();
-    AlunoApp getAluno();
+
     QString getFlag();
     QString getErrorText();
 };
